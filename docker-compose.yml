@@ -1,0 +1,12 @@
+services:
+  lyriks-backend:
+    build: .
+    container_name: lyriks_api
+    restart: unless-stopped
+    ports:
+      - "8282:8000"
+    volumes:
+      # Creates a 'vault' directory inside ~/Docker/Lyriks/ on the host
+      - ./vault:/vault
+    networks:
+      - default
